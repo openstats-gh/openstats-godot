@@ -15,7 +15,23 @@ openstats SDK for Godot Engine 4
 
 Check out [example.gd](example/example.gd) for working example usage. Otherwise, follow along below.
 
-### Setting the player's Game token
+### Setting the Game RID
+
+When a developer creates a new Game on Openstats, the Game is assigned an RID. This RID is used to uniquely identify 
+the Game, and must be configured with the SDK before any requests are sent.
+
+```gdscript
+func _ready():
+	Openstats.game_rid = "g_30JsWkn0GHof1LXH62Idm"
+```
+
+> [!NOTE]
+> Openstats RID's aren't the same thing as Godot RID's. Openstats RID's are a type safe string that uniquely identifies
+> resources such as Users, Games, Achievements, and Game Sessions.
+
+<!-- TODO: Link to the openstats documentation on RID's, and how to retrieve a game's RID. -->
+
+### Setting the player's Game Token
 
 Openstats provides a session-based API, which requires a "Game Token". The Game Token is essentially a password that 
 allows your game to create "Game Sessions", which are used to track stats, playtime, and achievements on the player's 
@@ -34,10 +50,6 @@ func _on_openstats_game_token_text_changed(new_text: String) -> void:
 The SDK will handle the bulk of the work creating a new Game Session. In order to create a new Session, you'll need to
 know the user's RID. You can get this by calling `Openstats.get_user()` with no parameters, which creates an openstats
 query for some information about the user associated with `game_token`.
-
-> [!NOTE]
-> Openstats RID's are not the same thing as Godot's RID. Openstats RID's are a type safe unique identifier. Every
-> resource has them - such as Users, Games, Achievements, and Game Sessions.
 
 ```gdscript
 func _get_user_rid() -> void:
@@ -64,6 +76,7 @@ Before starting the session, you should connect to `Openstats.session_started` a
 
 ```gdscript
 func _ready():
+    # ...
     Openstats.session_started.connect(_on_session_started)
     Openstats.heartbeat_completed.connect(_on_heartbeat_completed)
 
