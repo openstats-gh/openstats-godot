@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw4bwnsoa0c83"]
+
+[sub_resource type="Theme" id="Theme_dxt2o"]
+
+[node name="Achievement" type="HBoxContainer"]
+theme = SubResource("Theme_dxt2o")
+alignment = 2
+
+[node name="AchievementName" type="Label" parent="."]
+layout_mode = 2
+text = "Achievement 1"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="ProgressLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Current Progress:"
+
+[node name="CurrentProgress" type="Label" parent="."]
+layout_mode = 2
+text = "0"
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="AddProgressCheckBox" type="CheckBox" parent="."]
+layout_mode = 2
+text = "Add Progress:"
+
+[node name="NewProgress" type="Label" parent="."]
+layout_mode = 2
+
+[node name="AddProgressValueBox" type="SpinBox" parent="."]
+layout_mode = 2

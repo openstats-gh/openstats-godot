@@ -1,0 +1,238 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3j226fjqvgl4"]
+
+[ext_resource type="Script" uid="uid://bemllpqd2n5gk" path="res://example/example.gd" id="1_fdt2r"]
+
+[sub_resource type="Theme" id="Theme_dxt2o"]
+
+[node name="Example" type="Node2D"]
+script = ExtResource("1_fdt2r")
+
+[node name="Achievements" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control" type="Control" parent="Achievements"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Game RID:"
+
+[node name="GameRIDLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "N/A"
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "User Token:"
+
+[node name="GameTokenTextEdit" type="LineEdit" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "gt_abcdefg123456"
+
+[node name="BeginSessionButton" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Begin Session"
+
+[node name="SessionInfo" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "User RID:"
+
+[node name="UserRID" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "N/A"
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "User Slug:"
+
+[node name="UserSlug" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "N/A"
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "Session RID:"
+
+[node name="SessionRID" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "N/A"
+
+[node name="VSeparator3" type="VSeparator" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "Last Pulse At:"
+
+[node name="LastPulseTime" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "N/A"
+
+[node name="VSeparator4" type="VSeparator" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "Next Pulse At:"
+
+[node name="NextPulseTime" type="Label" parent="Control/VBoxContainer/SessionInfo"]
+layout_mode = 2
+text = "N/A"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="GetProgressButton" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Get Achievement Progress"
+
+[node name="AddProgressButton" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Submit Achievement Progress"
+
+[node name="Achievement1" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dxt2o")
+alignment = 2
+
+[node name="AchievementName" type="Label" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+text = "Achievement 1"
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+
+[node name="ProgressLabel" type="Label" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+text = "Current Progress:"
+
+[node name="CurrentProgress" type="Label" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+text = "0"
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+
+[node name="AddProgressCheckBox" type="CheckBox" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+disabled = true
+text = "Add Progress:"
+
+[node name="NewProgress" type="Label" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+
+[node name="AddProgressValueBox" type="SpinBox" parent="Control/VBoxContainer/Achievement1"]
+layout_mode = 2
+editable = false
+
+[node name="Achievement2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dxt2o")
+alignment = 2
+
+[node name="AchievementName" type="Label" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+text = "Achievement 2"
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+
+[node name="ProgressLabel" type="Label" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+text = "Current Progress:"
+
+[node name="CurrentProgress" type="Label" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+text = "0"
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+
+[node name="AddProgressCheckBox" type="CheckBox" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+disabled = true
+text = "Add Progress:"
+
+[node name="NewProgress" type="Label" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+
+[node name="AddProgressValueBox" type="SpinBox" parent="Control/VBoxContainer/Achievement2"]
+layout_mode = 2
+editable = false
+
+[node name="Achievement3" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dxt2o")
+alignment = 2
+
+[node name="AchievementName" type="Label" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+text = "Achievement 3"
+
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+
+[node name="ProgressLabel" type="Label" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+text = "Current Progress:"
+
+[node name="CurrentProgress" type="Label" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+text = "0"
+
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+
+[node name="AddProgressCheckBox" type="CheckBox" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+disabled = true
+text = "Add Progress:"
+
+[node name="NewProgress" type="Label" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+
+[node name="AddProgressValueBox" type="SpinBox" parent="Control/VBoxContainer/Achievement3"]
+layout_mode = 2
+editable = false
+
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/BeginSessionButton" to="." method="_on_begin_session_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer2/GetProgressButton" to="." method="_on_get_progress_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer2/AddProgressButton" to="." method="_on_add_progress_button_pressed"]
