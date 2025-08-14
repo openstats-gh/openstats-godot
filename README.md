@@ -1,5 +1,4 @@
-# openstats-godot
-openstats SDK for Godot Engine 4
+# Openstats Godot 4 SDK
 
 ## Installing
 
