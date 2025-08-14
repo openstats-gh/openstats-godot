@@ -128,7 +128,7 @@ will contain the progress values.
 
 To update the current user's progress for some achievements:
 
-```go
+```gdscript
 var new_progress: Dictionary[String, int] = {
     # some achievements are basically just flags, with a progress requirement of 1.
     "beat-the-game": 1,
