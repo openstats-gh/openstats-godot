@@ -55,7 +55,7 @@ func _on_user_query_completed(user: OpenstatsModels.User) -> void:
 > The query isn't necessarily finished after `run()` has returned. Instead, the `completed` signal will be emitted once
 > the query completes successfully.
 
-> [!INFO]
+> [!NOTE]
 > all queries like this also have an `errored` signal you can connect to if you want to handle errors
 
 ### Starting the Game Session
@@ -76,7 +76,7 @@ func _on_heartbeat_completed(session: OpenstatsModels.GameSession):
     # latest session information
 ```
 
-> [!INFO]
+> [!NOTE]
 > theres also `session_failed` and `heartbeat_failed` signals if you want to handle errors
 
 After setting `Openstats.user_rid`, initialize a new Session:
@@ -121,7 +121,7 @@ func _on_get_progress_query_completed(new_progress: Dictionary[String, int]) -> 
 that updates the user's progress of the achievements in the progress dictionary, to the mapped values. The response
 will contain the progress values.
 
-> [!INFO]
+> [!NOTE]
 > - If the provided progress value is lower than the user's current progress for that achievement, then it will be
 > ignored.
 > - If the provided progress value is higher than the achievement's progress requirement, then it will be ignored.
