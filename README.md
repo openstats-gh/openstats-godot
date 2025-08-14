@@ -24,7 +24,7 @@ behalf.
 You should instruct the player to create a new Game Token for your game on their favourite openstats instance. Once the
 player provides you with the Game Token, configure the Openstats singleton with the token:
 
-```go
+```gdscript
 func _on_openstats_game_token_text_changed(new_text: String) -> void:
     Openstats.game_token = new_text
 ```
@@ -39,7 +39,7 @@ query for some information about the user associated with `game_token`.
 > Openstats RID's are not the same thing as Godot's RID. Openstats RID's are a type safe unique identifier. Every
 > resource has them - such as Users, Games, Achievements, and Game Sessions.
 
-```go
+```gdscript
 func _get_user_rid() -> void:
     var user_query := Openstats.get_user()
     user_query.completed.connect(_on_user_query_completed)
@@ -62,7 +62,7 @@ func _on_user_query_completed(user: OpenstatsModels.User) -> void:
 
 Before starting the session, you should connect to `Openstats.session_started` and `Openstats.heartbeat_completed`:
 
-```go
+```gdscript
 func _ready():
     Openstats.session_started.connect(_on_session_started)
     Openstats.heartbeat_completed.connect(_on_heartbeat_completed)
@@ -81,7 +81,7 @@ func _on_heartbeat_completed(session: OpenstatsModels.GameSession):
 
 After setting `Openstats.user_rid`, initialize a new Session:
 
-```go
+```gdscript
 func _on_user_query_completed(user: OpenstatsModels.User) -> void:
     Openstats.user_rid = user.rid
     Openstats.start_session()
@@ -103,7 +103,7 @@ of the game associated with the current game session, that the player also has p
 
 As an example, to get the current user's achievement progress:
 
-```go
+```gdscript
 func _get_achievement_progress() -> void:
     var progress_query := Openstats.get_achievement_progress(Openstats.user_rid)
     progress_query.completed.connect(_on_get_progress_query_completed)
