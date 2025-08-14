@@ -154,3 +154,46 @@ var progress_query := Openstats.add_achievement_progress(new_progress)
 progress_query.completed.connect(_on_set_progress_query_completed)
 progress_query.run()
 ```
+
+## Error handling
+
+`Openstats.start_session()` and query `run()` functions always return an `Error` if there was a problem sending the 
+query. You can check them like this:
+
+```gdscript
+	var error := Openstats.start_session()
+	if error != OK:
+		push_error("Error starting game session: ", error_string(error))
+```
+
+However, an `OK` result does not mean that the session will be created or that the query will succeed. To handle query
+errors, you should also connect to the `errored` signal:
+
+```gdscript
+func _get_user_rid() -> void:
+	var user_request := Openstats.get_user()
+	user_request.errored.connect(_on_user_request_errored)
+	user_request.completed.connect(_on_user_request_completed)
+
+    var error := user_request.run()
+	if error != OK:
+		push_error("Error getting user info: ", error_string(user_request.error))
+
+func _on_user_request_errored(error: Error, response_code: int, details: ProblemDetails) -> void:
+	push_error("User info request failed: ", error_string(error), response_code, details)
+```
+
+For session and heartbeat failures, there is `Openstats.session_failed` and `Openstats.heartbeat_failed`:
+
+```gdscript
+func _ready():
+    # ...
+	Openstats.session_failed.connect(_on_session_failed)
+	Openstats.heartbeat_failed.connect(_on_heartbeat_failed)
+
+func _on_session_failed(error: Error, response_code: int, details: ProblemDetails):
+	push_error("Session failed to start: ", error_string(error), response_code, details)
+
+func _on_heartbeat_failed(error: Error, response_code: int, details: ProblemDetails):
+	push_error("Session failed to heartbeat: ", error_string(error), response_code, details)
+```
